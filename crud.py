@@ -39,7 +39,7 @@ def select(tabela):
     except Exception as e:
         print(f"Algo ocorreu errado: {e}")
     finally:
-        conexao.close()
+        closeConnection()
 
 def update(tabela, campo, valor, ident, id_valor):
     try:
@@ -52,4 +52,17 @@ def update(tabela, campo, valor, ident, id_valor):
         conexao.rollback()
         print(f"Algo ocorreu errado: {e}")
     finally:
-        conexao.close()
+        closeConnection()
+
+def delete():
+    try:
+        conexao = getConnection()
+        cursor = conexao.cursor()
+        query = f"DELETE FROM {tabela} WHERE {campo} = {valor}"
+        cursor.execute(query)
+        conexao.commit()
+    except Exception as e:
+        conexao.rollback()
+        print(f"Algo ocorreu errado: {e}")
+    finally:
+        closeConnection()
