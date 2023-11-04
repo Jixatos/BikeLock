@@ -29,6 +29,17 @@ def insert(tabela, campo, valor):
         conexao.close()
         print("Inserido com Sucesso")
 
+def select(tabela):
+    try:
+        conexao = getConnection()
+        cursor = conexao.cursor()
+        query = f"SELECT * FROM {tabela}"
+        cursor.execute(query)
+        conexao.commit()
+    except Exception as e:
+        print(f"Algo ocorreu errado: {e}")
+    finally:
+        conexao.close()
 
 
 
