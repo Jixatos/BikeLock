@@ -39,7 +39,7 @@ def select(tabela):
     except Exception as e:
         print(f"Algo ocorreu errado: {e}")
     finally:
-        closeConnection()
+        closeConnection(conexao)
 
 def update(tabela, campo, valor, ident, id_valor):
     try:
@@ -52,7 +52,7 @@ def update(tabela, campo, valor, ident, id_valor):
         conexao.rollback()
         print(f"Algo ocorreu errado: {e}")
     finally:
-        closeConnection()
+        closeConnection(conexao)
 
 def delete(tabela, campo, valor):
     try:
@@ -65,5 +65,5 @@ def delete(tabela, campo, valor):
         conexao.rollback()
         print(f"Algo ocorreu errado: {e}")
     finally:
-        closeConnection()
+        closeConnection(conexao)
 
