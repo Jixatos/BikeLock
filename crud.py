@@ -25,4 +25,11 @@ def insert(tabela, campo, valor):
     except Exception as e:
         conexao.rollback()
         print(f"Algo ocorreu errado: {e}")
+    finally:
+        conexao.close()
+        print("Inserido com Sucesso")
+
+
+
+
 
