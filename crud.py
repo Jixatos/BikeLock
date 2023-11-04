@@ -19,7 +19,7 @@ def insert(tabela, campo, valor):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"INSERT INTO {tabela} SET {id} WHERE {campo} = {valor}"
+        query = f"INSERT INTO {tabela} SET {ident} WHERE {campo} = {valor}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -41,6 +41,16 @@ def select(tabela):
     finally:
         conexao.close()
 
-
+def update(tabela, campo, valor, ident, id_valor):
+    try:
+        conexao = getConnection()
+        cursor = conexao.cursor()
+        query = f"UPDATE {tabela} SET {campo} = {valor} WHERE {ident} = {id_valor}"
+        conexao.commit()
+    except Exception as e:
+        conexao.rollback()
+        print(f"Algo ocorreu errado: {e}")
+    finally:
+        conexao.close()
 
 
