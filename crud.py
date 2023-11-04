@@ -46,11 +46,10 @@ def update(tabela, campo, valor, ident, id_valor):
         conexao = getConnection()
         cursor = conexao.cursor()
         query = f"UPDATE {tabela} SET {campo} = {valor} WHERE {ident} = {id_valor}"
+        cursor.execute(query)
         conexao.commit()
     except Exception as e:
         conexao.rollback()
         print(f"Algo ocorreu errado: {e}")
     finally:
         conexao.close()
-
-
