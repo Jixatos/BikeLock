@@ -54,7 +54,7 @@ def update(tabela, campo, valor, ident, id_valor):
     finally:
         closeConnection()
 
-def delete():
+def delete(tabela, campo, valor):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
@@ -66,3 +66,4 @@ def delete():
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection()
+
