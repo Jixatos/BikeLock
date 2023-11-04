@@ -40,6 +40,7 @@ def select(tabela):
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
+        print("Resgatado com Sucesso")
 
 def update(tabela, campo, valor, ident, id_valor):
     try:
@@ -53,6 +54,7 @@ def update(tabela, campo, valor, ident, id_valor):
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
+        print("Atualizado com Sucesso")
 
 def delete(tabela, ident, valor):
     try:
@@ -66,4 +68,5 @@ def delete(tabela, ident, valor):
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
+        print("Deletado com Sucesso")
 
