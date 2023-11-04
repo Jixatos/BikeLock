@@ -15,7 +15,7 @@ def closeConnection(connection):
     except Exception as e:
         print(f"Algo ocorreu errado: {e}")
 
-def insert(tabela, campo, valor):
+def insert(tabela, ident, campo, valor):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
@@ -26,7 +26,7 @@ def insert(tabela, campo, valor):
         conexao.rollback()
         print(f"Algo ocorreu errado: {e}")
     finally:
-        conexao.close()
+        closeConnection(conexao)
         print("Inserido com Sucesso")
 
 def select(tabela):
@@ -54,11 +54,11 @@ def update(tabela, campo, valor, ident, id_valor):
     finally:
         closeConnection(conexao)
 
-def delete(tabela, campo, valor):
+def delete(tabela, ident, valor):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"DELETE FROM {tabela} WHERE {campo} = {valor}"
+        query = f"DELETE FROM {tabela} WHERE {ident} = {valor}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
