@@ -11,7 +11,7 @@ def inputTelefone():
 
         return telefone
     except ValueError as e:
-        print("Erro de entrada no Telefone", e)
+        print("Erro de entrada no Telefone: ", e)
         return None
 
 def inputCpf():
@@ -26,7 +26,7 @@ def inputCpf():
 
         return cpf
     except Exception as e:
-        print("Erro de entrada no CPF", e)
+        print("Erro de entrada no CPF: ", e)
         return None
 
 def inputCnpj():
@@ -41,7 +41,15 @@ def inputCnpj():
 
         return cnpj
     except Exception as e:
-        print("Erro de entrada no CNPJ", e)
+        print("Erro de entrada no CNPJ: ", e)
         return None
 
+def inputEmail():
+    try:
+        email = input("Email: ")
+        return email
+        #Regex
 
+    except Exception as e:
+        print("Erro de entrada Email: ", e)
+        return None
