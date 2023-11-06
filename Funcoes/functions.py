@@ -53,7 +53,7 @@ def inputEmail():
         # (Regex)
 
     except Exception as e:
-        print("Erro de entrada Email: ", e)
+        print("Erro de entrada no Email: ", e)
         return None
 
 def inputPassword():
@@ -63,7 +63,6 @@ def inputPassword():
 
         return senha
     except Exception as e:
-        print("Erro na entrada da Senha: ", e)
+        print("Erro na entrada na Senha: ", e)
         return None
-
 
