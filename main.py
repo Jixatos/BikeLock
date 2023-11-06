@@ -10,26 +10,38 @@ def inputTelefone():
         telefone = (ddd, numero)
 
         return telefone
-    except ValueError:
-        print("Insira um valor válido")
-        return 'ValueError'
-    except Exception as e:
-        print("Algo ocorreu errado", e)
+    except ValueError as e:
+        print("Erro de entrada no Telefone", e)
         return None
 
 def inputCpf():
     try:
         cpf = input("CPF: ")
-        car = ".-/ "
 
-        for i in range (0, len(car)):
+        # Remoção de caracteres padrões no CPF
+        car = ".-/ "
+        for i in range(0, len(car)):
             cpf = cpf.replace(car[i], "")
         cpf = int(cpf)
 
         return cpf
-    except ValueError as e:
-        print("Insira um valort válido", e)
-        return "ValueError"
     except Exception as e:
-        print("Algo ocorreu errado", e)
+        print("Erro de entrada no CPF", e)
         return None
+
+def inputCnpj():
+    try:
+        cnpj = input("CNPJ: ")
+
+        # Remoção de caracteres padrões no CNPJ
+        car = ".-/ "
+        for i in range(0, len(car)):
+            cnpj = cnpj.replace(car[i], "")
+        cnpj = int(cnpj)
+
+        return cnpj
+    except Exception as e:
+        print("Erro de entrada no CNPJ", e)
+        return None
+
+
