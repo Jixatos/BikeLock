@@ -1,4 +1,4 @@
-import crud
+import getpass
 
 def inputTelefone():
     try:
@@ -52,4 +52,14 @@ def inputEmail():
 
     except Exception as e:
         print("Erro de entrada Email: ", e)
+        return None
+
+def inputPassword():
+    try:
+        senha = getpass.getpass("Senha: ")
+        # Regex
+
+        return senha
+    except Exception as e:
+        print("Erro na entrada da Senha: ", e)
         return None
