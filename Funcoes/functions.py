@@ -4,9 +4,11 @@ def inputTelefone():
     try:
         ddd = int(input("DDD: "))
         numero = input("Telefone: ")
+        ddd = ddd.strip()
+
+        # (Regex)
 
         numero = int(numero.strip())
-        ddd = ddd.strip()
         telefone = (ddd, numero)
 
         return telefone
@@ -18,7 +20,7 @@ def inputCpf():
     try:
         cpf = input("CPF: ")
 
-        # Remoção de caracteres padrões no CPF
+        # Remoção de caracteres padrões no CPF (Regex)
         car = ".-/ "
         for i in range(0, len(car)):
             cpf = cpf.replace(car[i], "")
@@ -33,7 +35,7 @@ def inputCnpj():
     try:
         cnpj = input("CNPJ: ")
 
-        # Remoção de caracteres padrões no CNPJ
+        # Remoção de caracteres padrões no CNPJ (Regex)
         car = ".-/ "
         for i in range(0, len(car)):
             cnpj = cnpj.replace(car[i], "")
@@ -48,7 +50,7 @@ def inputEmail():
     try:
         email = input("Email: ")
         return email
-        #Regex
+        # (Regex)
 
     except Exception as e:
         print("Erro de entrada Email: ", e)
@@ -57,9 +59,11 @@ def inputEmail():
 def inputPassword():
     try:
         senha = getpass.getpass("Senha: ")
-        # Regex
+        # (Regex)
 
         return senha
     except Exception as e:
         print("Erro na entrada da Senha: ", e)
         return None
+
+
