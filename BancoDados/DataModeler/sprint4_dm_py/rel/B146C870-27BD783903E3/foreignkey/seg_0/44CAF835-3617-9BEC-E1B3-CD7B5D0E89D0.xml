@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="44CAF835-3617-9BEC-E1B3-CD7B5D0E89D0" containerWithKeyObject="DEC4DD33-FD8A-1664-BE56-A3BA84E6D8C8" localFKIndex="AA730B1D-0D8D-9E1E-9077-B0797C020270" name="Seguros_Bicicleta_FK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>06CA6A4A-F307-0C8F-2EEF-4BB3A7E185B9</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<referredTableLongName>Bicicleta</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9A997A68-8EE6-E424-941B-DB56E1D865AE</referredTableID>
+<keyObject>A4EEBBDE-83DF-2C5E-F270-9CB64DF5EB47</keyObject>
+<referredKeyID>A4EEBBDE-83DF-2C5E-F270-9CB64DF5EB47</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_bicicleta</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

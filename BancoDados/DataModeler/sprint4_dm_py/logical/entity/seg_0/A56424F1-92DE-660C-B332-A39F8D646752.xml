@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A56424F1-92DE-660C-B332-A39F8D646752" name="Cliente">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:41:19 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="email" id="789ACC84-C3FF-C28E-4E99-45CD694429F1">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:44:02 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nome" id="DC021AE4-7CAF-ABB3-683B-83A63D1EFA17">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:44:21 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefone" id="C7A6588E-E7EC-CB71-3047-3A8BE4484D3C">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:44:38 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="senha" id="DD888AF1-14D5-2EA9-1688-DB5ACE9EA7C1">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:45:02 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_endereco" id="428B3017-B987-D792-0BF2-0A3D0CAC700C">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:58:38 UTC</createdTime>
+<generatorID>BB0241BA-A537-B535-5C43-B1AFA62259EB</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<referedAttribute>D32343FF-054B-BAC9-AB06-2BCE871F082D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AFA8A9CD-AD61-D229-381E-4AC75B2CD979" name="Cliente PK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:44:00 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>789ACC84-C3FF-C28E-4E99-45CD694429F1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

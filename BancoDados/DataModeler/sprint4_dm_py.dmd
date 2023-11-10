@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="sprint4_dm_py" id="BFD1E81E-FFFE-3674-98D5-D3B72740F8A6" version="3.5">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:35:18 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>BFD1E81E-FFFE-3674-98D5-D3B72740F8A6</designId>
+</OSDM_Design>

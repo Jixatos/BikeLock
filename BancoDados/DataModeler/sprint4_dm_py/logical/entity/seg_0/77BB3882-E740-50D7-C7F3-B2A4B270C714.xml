@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="77BB3882-E740-50D7-C7F3-B2A4B270C714" name="Seguros">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:43:20 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_seguro" id="50F4426A-D082-61E7-7725-C5BAE2D7E143">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:55:05 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="seguro" id="3842055B-6049-A4AE-6532-9C4476FC6AB8">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:55:33 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_bicicleta" id="E9C9DA13-FD3F-850E-AC56-EFD85FAEADCF">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:25 UTC</createdTime>
+<generatorID>06CA6A4A-F307-0C8F-2EEF-4BB3A7E185B9</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<referedAttribute>D4A07F15-C359-546B-18BB-8C130EFB1DAE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D6A5A9D1-2055-13BF-CDE0-821192A67BB1" name="Seguros PK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:55:27 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>50F4426A-D082-61E7-7725-C5BAE2D7E143</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

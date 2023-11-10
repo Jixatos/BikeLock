@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2BD528EA-547C-7A01-0721-97D4C7AEDD84" name="Cliente">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>A56424F1-92DE-660C-B332-A39F8D646752</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="email" id="AFD1EAE4-ABFC-EC53-C4F9-7C97C58B66E6">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>789ACC84-C3FF-C28E-4E99-45CD694429F1</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nome" id="BEC13896-540E-BDAD-9024-88792861B08D">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>DC021AE4-7CAF-ABB3-683B-83A63D1EFA17</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefone" id="A0BACDAE-DE66-66A7-A995-622273B59155">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>C7A6588E-E7EC-CB71-3047-3A8BE4484D3C</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="senha" id="5BD883DC-1E28-09DC-F5C6-5EF380CFB4DB">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>DD888AF1-14D5-2EA9-1688-DB5ACE9EA7C1</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco_id_endereco" id="0C3E57DC-2B11-4269-52E7-452423ED0636">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>428B3017-B987-D792-0BF2-0A3D0CAC700C</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="48B29DDD-C039-42BF-2AE0-82A41BAB458A" referredColumn="A5B1133D-282B-3517-AD92-BA50C2BB37F5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="619DE1E2-2B66-8E02-4AF0-3FA28CD4B38D" name="Cliente_PK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>AFA8A9CD-AD61-D229-381E-4AC75B2CD979</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AFD1EAE4-ABFC-EC53-C4F9-7C97C58B66E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F40727C-A6DE-C4BF-5356-1F10FAF2C424" name="Cliente_Endereco_FK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>BB0241BA-A537-B535-5C43-B1AFA62259EB</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0C3E57DC-2B11-4269-52E7-452423ED0636"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

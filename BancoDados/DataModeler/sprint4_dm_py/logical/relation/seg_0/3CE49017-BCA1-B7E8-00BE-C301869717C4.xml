@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Possui_cpf" directorySegmentName="seg_0" id="3CE49017-BCA1-B7E8-00BE-C301869717C4">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:59:12 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<sourcePk>AFA8A9CD-AD61-D229-381E-4AC75B2CD979</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A56424F1-92DE-660C-B332-A39F8D646752</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>EB998956-12A5-FFDD-EA84-D99363584A48</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

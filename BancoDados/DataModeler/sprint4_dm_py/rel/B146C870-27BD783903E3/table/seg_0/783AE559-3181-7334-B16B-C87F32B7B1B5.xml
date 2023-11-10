@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="783AE559-3181-7334-B16B-C87F32B7B1B5" name="Fisica">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>EB998956-12A5-FFDD-EA84-D99363584A48</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cpf" id="2891BB24-442A-E8FC-17FC-855A0EC247F5">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>77F4C308-622D-8997-11BB-87DE1C410862</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>14</dataTypeSize>
+<ownDataTypeParameters>14,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rg" id="61B71459-8933-C22B-1B82-CD3FC7F27D45">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>90564942-522F-E644-F3CA-8E33CA139D29</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_email" id="09E59D29-E887-B56B-FA87-75BB83C16A70">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>4685F0F0-5938-2478-D12A-CD98C598A717</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F6278CDA-167E-29F9-72A0-0F1CDCE53E2F" referredColumn="AFD1EAE4-ABFC-EC53-C4F9-7C97C58B66E6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1E222C78-0F98-6193-E881-FA08508178DF" name="Fisica_PK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>93CBF12E-5A91-4C5B-47A7-1D58BCA39C45</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2891BB24-442A-E8FC-17FC-855A0EC247F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A5CC4B45-55C6-4D2A-BD76-D7EF5C91CD9C" name="Fisica_Cliente_FK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>3CE49017-BCA1-B7E8-00BE-C301869717C4</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="09E59D29-E887-B56B-FA87-75BB83C16A70"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76886898-2BB1-94DD-ABCC-B60B46A4E205" name="Judicial">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:50:01 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cnpj" id="D7B0BCAB-A67B-008C-043E-5D2970D0C9A1">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:51:23 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>18</dataTypeSize>
+<ownDataTypeParameters>18,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="5F7C7D52-89B3-117A-5F98-B5BEED387CE0">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:58:58 UTC</createdTime>
+<generatorID>A9FE133C-88B5-B70C-0A87-8489ACDFB435</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="true"/>
+</engineerTo>
+<referedAttribute>789ACC84-C3FF-C28E-4E99-45CD694429F1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BB70C333-6E82-9FA9-8C5E-19852E0E278E" name="Judicial PK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:51:37 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="B146C870-110A-E1A5-2AE0-27BD783903E3" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D7B0BCAB-A67B-008C-043E-5D2970D0C9A1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

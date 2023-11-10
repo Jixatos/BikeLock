@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F2701AD8-F603-1CE4-6461-CEA4114D7A5C" name="Endereco">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>B377B0B4-61EC-C973-7B67-0EB053F44AA3</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_endereco" id="A5B1133D-282B-3517-AD92-BA50C2BB37F5">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>D32343FF-054B-BAC9-AB06-2BCE871F082D</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cep" id="83AB6A52-B6FF-9A0A-6516-E27B363638A5">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>CB2F3B2D-3267-135C-2999-2A7A45CC3343</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>8,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="rua" id="E5E7EC4E-2B85-A550-754B-59746F99F08F">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>DE2136AF-D277-45BB-8B8F-F3BDFA045F5D</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numero" id="8CEF84BC-1FAB-E1E8-1B67-DB9BDA4EE2B8">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>86D929FD-4A2F-4EEC-9531-31AEA1910E4B</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="complemento" id="C56AD3D4-5C00-C204-33E0-C1140245BE2E">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>8D3BE3A1-3827-B041-8EF1-703C059420C1</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="3D729B32-25B0-1DF7-7956-5DC480357D72">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>B6C3E863-C692-2D31-029C-282D0825EA5D</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cidade" id="9D51F27D-F414-C626-1B4B-C5085EEFF473">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>6CEB1BF2-6923-99A2-0D44-037262C14916</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25</dataTypeSize>
+<ownDataTypeParameters>25,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="258CA549-8105-7158-37C8-0364C904DFC0" name="Endereco_PK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>66335A2C-F075-7FFD-6194-2A7067866514</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5B1133D-282B-3517-AD92-BA50C2BB37F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

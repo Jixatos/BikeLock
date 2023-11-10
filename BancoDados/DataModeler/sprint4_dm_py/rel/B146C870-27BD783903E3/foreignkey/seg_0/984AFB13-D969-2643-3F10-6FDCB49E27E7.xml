@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="984AFB13-D969-2643-3F10-6FDCB49E27E7" containerWithKeyObject="9A997A68-8EE6-E424-941B-DB56E1D865AE" localFKIndex="8405C202-4631-E6EA-C601-07CDAC7C333A" name="Bicicleta_Cliente_FK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>D7E8170F-94EF-7056-C9DD-F2EAC75419E6</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<referredTableLongName>Cliente</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2BD528EA-547C-7A01-0721-97D4C7AEDD84</referredTableID>
+<keyObject>619DE1E2-2B66-8E02-4AF0-3FA28CD4B38D</keyObject>
+<referredKeyID>619DE1E2-2B66-8E02-4AF0-3FA28CD4B38D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>email</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

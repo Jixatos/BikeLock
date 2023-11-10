@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="265BB69F-B789-4BF5-2F11-00AEE8CE858B" name="Judicial">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>76886898-2BB1-94DD-ABCC-B60B46A4E205</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cnpj" id="2B0D0DA0-30B0-9F4C-F839-173784254FF4">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>D7B0BCAB-A67B-008C-043E-5D2970D0C9A1</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>18</dataTypeSize>
+<ownDataTypeParameters>18,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cliente_email" id="4C6360B7-EACD-DFCE-24EE-9E04AB519954">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>5F7C7D52-89B3-117A-5F98-B5BEED387CE0</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D9368B22-D28D-CCDC-CA1F-D0E541654AB6" referredColumn="AFD1EAE4-ABFC-EC53-C4F9-7C97C58B66E6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AAC947B8-BB23-7FDE-96EA-3CB998818689" name="Judicial_PK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>BB70C333-6E82-9FA9-8C5E-19852E0E278E</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2B0D0DA0-30B0-9F4C-F839-173784254FF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FAB12968-1A05-BF2E-6201-1D6FD01BD3A1" name="Judicial_Cliente_FK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>A9FE133C-88B5-B70C-0A87-8489ACDFB435</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C6360B7-EACD-DFCE-24EE-9E04AB519954"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

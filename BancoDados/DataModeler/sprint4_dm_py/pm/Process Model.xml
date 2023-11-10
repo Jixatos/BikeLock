@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="A279E95C-E232-FC55-CAEF-1467D50E22DB">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 18:35:18 UTC</createdTime>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

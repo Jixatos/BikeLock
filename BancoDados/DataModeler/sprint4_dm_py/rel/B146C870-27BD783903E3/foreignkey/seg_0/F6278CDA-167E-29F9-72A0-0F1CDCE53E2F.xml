@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F6278CDA-167E-29F9-72A0-0F1CDCE53E2F" containerWithKeyObject="783AE559-3181-7334-B16B-C87F32B7B1B5" localFKIndex="A5CC4B45-55C6-4D2A-BD76-D7EF5C91CD9C" name="Fisica_Cliente_FK">
+<createdBy>j1108</createdBy>
+<createdTime>2023-11-10 19:01:42 UTC</createdTime>
+<generatorID>3CE49017-BCA1-B7E8-00BE-C301869717C4</generatorID>
+<ownerDesignName>sprint4_dm_py</ownerDesignName>
+<referredTableLongName>Cliente</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2BD528EA-547C-7A01-0721-97D4C7AEDD84</referredTableID>
+<keyObject>619DE1E2-2B66-8E02-4AF0-3FA28CD4B38D</keyObject>
+<referredKeyID>619DE1E2-2B66-8E02-4AF0-3FA28CD4B38D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>email</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
