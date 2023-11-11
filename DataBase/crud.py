@@ -15,11 +15,11 @@ def closeConnection(connection):
     except Exception as e:
         print(f"Algo ocorreu errado: {e}")
 
-def insert(table, rows, values):
+def insert(tabela, rows, values):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"INSERT INTO {table} ({rows}) VALUES ({values})"
+        query = f"INSERT INTO {tabela} ({rows}) VALUES ({values})"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -29,11 +29,11 @@ def insert(table, rows, values):
         closeConnection(conexao)
         print("Inserido com Sucesso")
 
-def select(table):
+def select(tabela):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"SELECT * FROM {table}"
+        query = f"SELECT * FROM {tabela}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -42,11 +42,11 @@ def select(table):
         closeConnection(conexao)
         print("Resgatado com Sucesso")
 
-def update(table, camps, id_row, id_value):
+def update(tabela, camps, id_row, id_value):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"UPDATE {table} SET {camps} WHERE {id_row} = {id_value}"
+        query = f"UPDATE {tabela} SET {camps} WHERE {id_row} = {id_value}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -56,11 +56,11 @@ def update(table, camps, id_row, id_value):
         closeConnection(conexao)
         print("Atualizado com Sucesso")
 
-def delete(table, id_row, id_value):
+def delete(tabela, id_row, id_value):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"DELETE FROM {table} WHERE {id_row} = {id_value}"
+        query = f"DELETE FROM {tabela} WHERE {id_row} = {id_value}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
