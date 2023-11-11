@@ -27,6 +27,7 @@ def insert(tabela, rows, values):
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
+        cursor.close()
         print("Inserido com Sucesso")
 
 def select(tabela):
@@ -40,6 +41,7 @@ def select(tabela):
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
+        cursor.close()
         print("Resgatado com Sucesso")
 
 def update(tabela, camps, id_row, id_value):
@@ -54,6 +56,7 @@ def update(tabela, camps, id_row, id_value):
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
+        cursor.close()
         print("Atualizado com Sucesso")
 
 def delete(tabela, id_row, id_value):
@@ -68,5 +71,6 @@ def delete(tabela, id_row, id_value):
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
+        cursor.close()
         print("Deletado com Sucesso")
 
