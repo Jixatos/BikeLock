@@ -1,8 +1,8 @@
 import oracledb
 
-def getConnection():
+def getConnection(user, password, host, port, service_name):
     try:
-        connection = oracledb.connect(user="xxxxx", password="xxxxx", host="oracle.fiap.com.br", port=1521, service_name="orcl")
+        connection = oracledb.connect(user=user, password=password, host=host, port=port, service_name=service_name)
         print(f'Conexão : {connection.version}')
     except Exception as e:
         print('Erro ao obter a conexão', e)
@@ -15,11 +15,11 @@ def closeConnection(connection):
     except Exception as e:
         print(f"Algo ocorreu errado: {e}")
 
-def insert(tabela, ident, campo, valor):
+def insert(table, rows, values):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"INSERT INTO {tabela} SET {ident} WHERE {campo} = {valor}"
+        query = f"INSERT INTO {table} ({rows}) VALUES ({values})"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -29,11 +29,11 @@ def insert(tabela, ident, campo, valor):
         closeConnection(conexao)
         print("Inserido com Sucesso")
 
-def select(tabela):
+def select(table):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"SELECT * FROM {tabela}"
+        query = f"SELECT * FROM {table}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -42,11 +42,11 @@ def select(tabela):
         closeConnection(conexao)
         print("Resgatado com Sucesso")
 
-def update(tabela, campo, valor, ident, id_valor):
+def update(table, camps, id_row, id_value):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"UPDATE {tabela} SET {campo} = {valor} WHERE {ident} = {id_valor}"
+        query = f"UPDATE {table} SET {camps} WHERE {id_row} = {id_value}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -56,11 +56,11 @@ def update(tabela, campo, valor, ident, id_valor):
         closeConnection(conexao)
         print("Atualizado com Sucesso")
 
-def delete(tabela, ident, valor):
+def delete(table, id_row, id_value):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"DELETE FROM {tabela} WHERE {ident} = {valor}"
+        query = f"DELETE FROM {table} WHERE {id_row} = {id_value}"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
