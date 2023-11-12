@@ -1,5 +1,7 @@
-from DataBase.crud import insert, select, update, delete
+from DataBase.crud import insert, select, update, delete, getConnection, closeConnection
 import requests
+import json
+import os
 
 
 def inputTelefone():
@@ -70,7 +72,7 @@ def inputPassword():
 
         return senha
     except Exception as e:
-        print("Erro na entrada na Senha: ", e)
+        print("Erro na entrada da Senha: ", e)
         return None
 
 
@@ -161,9 +163,52 @@ def cadastroClient(connection_input, usuario):
 def login(connection_input, email, senha):
     try:
         rows = select(connection_input, 'cliente', 'email', email)
-        if email == rows[0] and senha == rows[3]:
-            return True
+        if rows and len(rows) > 0:
+            if email == rows[0][0] and senha == rows[0][3]:
+                print("Login efetuado com Sucesso!")
+                return 'logado'
+            else:
+                print("Email ou senha incorreto.")
+                return 'deslogado'
         else:
-            return False
+            print("Nenhum resultado encontrado.")
+            return 'deslogado'
     except Exception as e:
         print("Erro no login: ", e)
+
+
+def writeJSON(dic, file):
+    with open(file, "w") as file_json:
+        json.dump(dic, file_json)
+
+
+def createJSON(file):
+    c = 0
+    connection_input = {}
+    while c != 1:
+        connection_input = {"user": input("User: "),
+                            "password": input("Password: "),
+                            "host": input("Host: "),
+                            "port": input("Port: "),
+                            "service_name": input("Service_name: ")}
+        writeJSON(connection_input, file)
+        connect = getConnection(connection_input)
+        if connect != 'Error':
+            closeConnection(connect)
+            writeJSON(connection_input, 'connection.json')
+            print("Dados corretos para conexão, arquivo de conexão salvo.")
+            c = 1
+        else:
+            print("Dados incorretos para conexão. Insira-os corretamente")
+    return connection_input
+
+
+def connectionJSON(file):
+    if os.path.exists(file):
+        with open(file, "r") as arq_json:
+            connection_input = json.load(arq_json)
+            return connection_input
+    else:
+        connection_input = createJSON(file)
+        return connection_input
+
