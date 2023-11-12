@@ -1,68 +1,55 @@
 CREATE TABLE bicicleta (
-    id_bicicleta  INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
+    id_bicicleta  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     marca         VARCHAR2(50),
     modelo        VARCHAR2(50),
     valor         FLOAT(2) NOT NULL,
     cliente_email VARCHAR2(255) NOT NULL
 );
 
-ALTER TABLE bicicleta ADD CONSTRAINT bicicleta_pk PRIMARY KEY ( id_bicicleta );
-
 CREATE TABLE cliente (
-    email                VARCHAR2(255) NOT NULL,
+    email                VARCHAR2(255) PRIMARY KEY,
     nome                 VARCHAR2(100) NOT NULL,
     telefone             VARCHAR2(9) NOT NULL,
-    senha                VARCHAR2(50) NOT NULL,
-    endereco_id_endereco INTEGER NOT NULL
+    senha                VARCHAR2(50) NOT NULL
 );
 
-ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( email );
-
 CREATE TABLE endereco (
-    id_endereco        INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
+    id_endereco        INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     cep                VARCHAR2(8) NOT NULL,
     logradouro         VARCHAR2(255) NOT NULL,
     numero             INTEGER NOT NULL,
     complemento        VARCHAR2(10),
     estado             VARCHAR2(2),
-    cidade             VARCHAR2(25)
+    cidade             VARCHAR2(25),
+    cliente_email      VARCHAR2(255) NOT NULL
 );
 
-ALTER TABLE endereco ADD CONSTRAINT endereco_pk PRIMARY KEY ( id_endereco );
-
 CREATE TABLE fisica (
-    cpf           VARCHAR2(14) NOT NULL,
+    cpf           VARCHAR2(14) PRIMARY KEY,
     rg            VARCHAR2(12),
     cliente_email VARCHAR2(255) NOT NULL
 );
 
-ALTER TABLE fisica ADD CONSTRAINT fisica_pk PRIMARY KEY ( cpf );
-
 CREATE TABLE judicial (
-    cnpj          VARCHAR2(18) NOT NULL,
+    cnpj          VARCHAR2(18) PRIMARY KEY,
     cliente_email VARCHAR2(255) NOT NULL
 );
 
-ALTER TABLE judicial ADD CONSTRAINT judicial_pk PRIMARY KEY ( cnpj );
-
 CREATE TABLE seguros (
-    id_seguro              INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
+    id_seguro              INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     seguro                 VARCHAR2(50) NOT NULL,
-    bicicleta_id_bicicleta INTEGER NOT NULL
+    id_bicicleta INTEGER NOT NULL
 );
 
-ALTER TABLE seguros ADD CONSTRAINT seguros_pk PRIMARY KEY ( id_seguro );
-
 COMMIT;
-
 
 ALTER TABLE bicicleta
     ADD CONSTRAINT bicicleta_cliente_fk FOREIGN KEY ( cliente_email )
         REFERENCES cliente ( email );
 
-ALTER TABLE cliente
-    ADD CONSTRAINT cliente_endereco_fk FOREIGN KEY ( endereco_id_endereco )
-        REFERENCES endereco ( id_endereco );
+ALTER TABLE endereco
+    ADD CONSTRAINT endereco_cliente_fk FOREIGN KEY ( cliente_email )
+        REFERENCES cliente ( email );
 
 ALTER TABLE fisica
     ADD CONSTRAINT fisica_cliente_fk FOREIGN KEY ( cliente_email )
@@ -73,6 +60,6 @@ ALTER TABLE judicial
         REFERENCES cliente ( email );
 
 ALTER TABLE seguros
-    ADD CONSTRAINT seguros_bicicleta_fk FOREIGN KEY ( bicicleta_id_bicicleta )
+    ADD CONSTRAINT seguros_bicicleta_fk FOREIGN KEY ( id_bicicleta )
         REFERENCES bicicleta ( id_bicicleta );
 COMMIT;
