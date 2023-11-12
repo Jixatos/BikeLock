@@ -75,8 +75,4 @@ ALTER TABLE judicial
 ALTER TABLE seguros
     ADD CONSTRAINT seguros_bicicleta_fk FOREIGN KEY ( bicicleta_id_bicicleta )
         REFERENCES bicicleta ( id_bicicleta );
-
 COMMIT;
-
-INSERT INTO seguros 
-    VALUES ();
