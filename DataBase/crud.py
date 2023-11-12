@@ -19,7 +19,7 @@ def insert(tabela, rows, values):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"INSERT INTO {tabela} ({rows}) VALUES ({values})"
+        query = f"INSERT INTO {tabela} {rows} VALUES ({values})"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
@@ -30,19 +30,20 @@ def insert(tabela, rows, values):
         cursor.close()
         print("Inserido com Sucesso")
 
-def select(tabela):
+def select(tabela,id_row, value):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
-        query = f"SELECT * FROM {tabela}"
+        query = f"SELECT * FROM {tabela} WHERE {id_row} = {value}"
         cursor.execute(query)
+        array = [result for result in cursor]
         conexao.commit()
+        return array
     except Exception as e:
         print(f"Algo ocorreu errado: {e}")
     finally:
         closeConnection(conexao)
         cursor.close()
-        print("Resgatado com Sucesso")
 
 def update(tabela, camps, id_row, id_value):
     try:
@@ -57,7 +58,6 @@ def update(tabela, camps, id_row, id_value):
     finally:
         closeConnection(conexao)
         cursor.close()
-        print("Atualizado com Sucesso")
 
 def delete(tabela, id_row, id_value):
     try:
@@ -72,5 +72,4 @@ def delete(tabela, id_row, id_value):
     finally:
         closeConnection(conexao)
         cursor.close()
-        print("Deletado com Sucesso")
 
