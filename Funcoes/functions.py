@@ -1,4 +1,4 @@
-from DataBase.crud import getConnection, closeConnection, insert, select, update, delete
+from DataBase.crud import insert, select, update, delete
 import getpass
 import requests
 
@@ -95,13 +95,14 @@ def verCep(dic):
     try:
         cep = dic['cep']
         if cep is not None:
-            return dic
+            return True
     except KeyError:
         print("O CEP foi digitado errado ou é inexistente")
+        return False
     except Exception as e:
         print("Erro com o Objeto JSON recuperado pelo ViaCEP: ",e)
 
-def cadastro(usuario):
+def cadastroClient(usuario):
     try:
         rows_user = [row for row in usuario.keys()]
         str_rows_user = ",".join(rows_user)
@@ -110,8 +111,14 @@ def cadastro(usuario):
         nome = usuario['nome']
         telefone = usuario['telefone']
         senha = usuario['senha']
-
         values_user = f'{email},{nome},{telefone},{senha}'
+
+        cpf = usuario['cpf']
+        rg = usuario['rg']
+        values_fis = f'{cpf},{rg}'
+
+        cnpj = usuario['cnpj']
+        values_jud = f'{cnpj}'
 
         endereco = usuario['endereco']
         rows_end = [rows for rows in endereco.keys()]
@@ -123,14 +130,21 @@ def cadastro(usuario):
         complemento = endereco['complemento']
         estado = endereco['estado']
         cidade = endereco['cidade']
-
         values_end = f'{cep},{rua},{numero},{complemento},{estado},{cidade}'
 
         #Inserção na tabela de endereco
         insert('endereco',str_rows_end,values_end)
 
-        #inserção na tabela de cliente
+        #Inserção na tabela de cliente
         insert('cliente',str_rows_user,values_user)
+
+        #Inserção na tabela Fisica/Jurídica
+        if cpf is not None:
+            insert('fisica','cpf, rg', values_fis)
+        else:
+            insert('judicial', 'cnpj', values_jud)
+
+        print("Cadastrado com sucesso!")
     except Exception as e:
         print("Erro no cadastro do usuário: ",e)
 

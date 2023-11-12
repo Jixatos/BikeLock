@@ -19,13 +19,13 @@ CREATE TABLE cliente (
 ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( email );
 
 CREATE TABLE endereco (
-    id_endereco INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
-    cep         VARCHAR2(8) NOT NULL,
-    rua         VARCHAR2(255) NOT NULL,
-    numero      INTEGER NOT NULL,
-    complemento VARCHAR2(10),
-    estado      VARCHAR2(2),
-    cidade      VARCHAR2(25)
+    id_endereco        INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
+    cep                VARCHAR2(8) NOT NULL,
+    logradouro         VARCHAR2(255) NOT NULL,
+    numero             INTEGER NOT NULL,
+    complemento        VARCHAR2(10),
+    estado             VARCHAR2(2),
+    cidade             VARCHAR2(25)
 );
 
 ALTER TABLE endereco ADD CONSTRAINT endereco_pk PRIMARY KEY ( id_endereco );

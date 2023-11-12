@@ -28,9 +28,8 @@ def insert(tabela, rows, values):
     finally:
         closeConnection(conexao)
         cursor.close()
-        print("Inserido com Sucesso")
 
-def select(tabela,id_row, value):
+def select(tabela, id_row, value):
     try:
         conexao = getConnection()
         cursor = conexao.cursor()
