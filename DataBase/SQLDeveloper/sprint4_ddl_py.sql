@@ -1,5 +1,5 @@
 CREATE TABLE bicicleta (
-    id_bicicleta  INTEGER NOT NULL,
+    id_bicicleta  INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
     marca         VARCHAR2(50),
     modelo        VARCHAR2(50),
     valor         FLOAT(2) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE cliente (
 ALTER TABLE cliente ADD CONSTRAINT cliente_pk PRIMARY KEY ( email );
 
 CREATE TABLE endereco (
-    id_endereco INTEGER NOT NULL,
+    id_endereco INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
     cep         VARCHAR2(8) NOT NULL,
     rua         VARCHAR2(255) NOT NULL,
     numero      INTEGER NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE judicial (
 ALTER TABLE judicial ADD CONSTRAINT judicial_pk PRIMARY KEY ( cnpj );
 
 CREATE TABLE seguros (
-    id_seguro              INTEGER NOT NULL,
+    id_seguro              INTEGER GENERATED ALWAYS AS IDENTITY NOT NULL,
     seguro                 VARCHAR2(50) NOT NULL,
     bicicleta_id_bicicleta INTEGER NOT NULL
 );
@@ -77,3 +77,6 @@ ALTER TABLE seguros
         REFERENCES bicicleta ( id_bicicleta );
 
 COMMIT;
+
+INSERT INTO seguros 
+    VALUES ();
