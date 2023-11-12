@@ -1,13 +1,31 @@
 from Funcoes.functions import inputEmail, inputPassword, login, cadastroClient, inputTelefone, inputCep, inputCpf, \
     inputCnpj, GETViaCep, verCep
+from DataBase.crud import getConnection, closeConnection
 
 test = True
 while test:
     print("Olá, Bem-vindo a BikeLock")
+    print("Para iniciar, insira os dados para conexão com banco de dados. Tenha em mente que você já deve ter aberto o "
+          "SQL Developer e rodado o script para funcionar adequadamente.")
+    conf_connection = False
+    connection_input = {}
+    while not conf_connection:
+        connection_input = {"user": input("User: "),
+                            "password": input("Password: "),
+                            "host": input("Host: "),
+                            "port": input("Port: "),
+                            "service_name": input("Service_name: ")}
+        connect = getConnection(connection_input)
+        if connect != 'Error':
+            print("Dados corretos para conexão")
+            conf_connection = True
+        else:
+            print("Dados incorretos para conexão. Insira-os corretamente")
+
     print("Faça seu login")
-    email = input("Email: ")
+    email = inputEmail()
     senha = inputPassword()
-    login = login(email, senha)
+    login = login(connection_input, email, senha)
     if login:
         print("Login efetuado com Sucesso!")
     else:
@@ -72,4 +90,4 @@ while test:
 
             usuario['endereco'] = endereco
 
-            cadastroClient(usuario)
+            cadastroClient(connection_input, usuario)

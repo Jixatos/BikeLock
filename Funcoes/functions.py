@@ -1,12 +1,11 @@
 from DataBase.crud import insert, select, update, delete
-import getpass
 import requests
+
 
 def inputTelefone():
     try:
         ddd = int(input("DDD: "))
         numero = input("Telefone: ")
-        ddd = ddd.strip()
 
         # (Regex)
 
@@ -17,6 +16,7 @@ def inputTelefone():
     except ValueError as e:
         print("Erro de entrada no Telefone: ", e)
         return None
+
 
 def inputCpf():
     try:
@@ -33,6 +33,7 @@ def inputCpf():
         print("Erro de entrada no CPF: ", e)
         return None
 
+
 def inputCnpj():
     try:
         cnpj = input("CNPJ: ")
@@ -48,6 +49,7 @@ def inputCnpj():
         print("Erro de entrada no CNPJ: ", e)
         return None
 
+
 def inputEmail():
     try:
         email = input("Email: ")
@@ -60,15 +62,17 @@ def inputEmail():
         print("Erro de entrada no Email: ", e)
         return None
 
+
 def inputPassword():
     try:
-        senha = getpass.getpass("Senha: ")
+        senha = input("Senha: ")
         # (Regex)
 
         return senha
     except Exception as e:
         print("Erro na entrada na Senha: ", e)
         return None
+
 
 def inputCep():
     try:
@@ -82,7 +86,8 @@ def inputCep():
 
         return cep
     except Exception as e:
-        print("Erro de entrada no CPF: ",e)
+        print("Erro de entrada no CPF: ", e)
+
 
 def GETViaCep(cep):
     try:
@@ -91,7 +96,8 @@ def GETViaCep(cep):
         dic = requisicao.json()
         return dic
     except Exception as e:
-        print("Erro no GETCep: ",e)
+        print("Erro no GETCep: ", e)
+
 
 def verCep(dic):
     try:
@@ -102,9 +108,10 @@ def verCep(dic):
         print("O CEP foi digitado errado ou é inexistente")
         return False
     except Exception as e:
-        print("Erro com o Objeto JSON recuperado pelo ViaCEP: ",e)
+        print("Erro com o Objeto JSON recuperado pelo ViaCEP: ", e)
 
-def cadastroClient(usuario):
+
+def cadastroClient(connection_input, usuario):
     try:
         rows_user = [row for row in usuario.keys()]
         str_rows_user = ",".join(rows_user)
@@ -134,26 +141,27 @@ def cadastroClient(usuario):
         cidade = endereco['cidade']
         values_end = f'{cep},{rua},{numero},{complemento},{estado},{cidade}'
 
-        #Inserção na tabela de endereco
-        insert('endereco',str_rows_end,values_end)
+        # Inserção na tabela de endereco
+        insert('endereco', str_rows_end, values_end)
 
-        #Inserção na tabela de cliente
-        insert('cliente',str_rows_user,values_user)
+        # Inserção na tabela de cliente
+        insert('cliente', str_rows_user, values_user)
 
-        #Inserção na tabela Fisica/Jurídica
+        # Inserção na tabela Fisica/Jurídica
         if cpf is not None:
-            insert('fisica','cpf, rg', values_fis)
+            insert(connection_input, 'fisica', 'cpf, rg', values_fis)
         else:
-            insert('judicial', 'cnpj', values_jud)
+            insert(connection_input, 'judicial', 'cnpj', values_jud)
 
         print("Cadastrado com sucesso!")
     except Exception as e:
-        print("Erro no cadastro do usuário: ",e)
+        print("Erro no cadastro do usuário: ", e)
 
-def login(email, senha):
+
+def login(connection_input, email, senha):
     try:
-        tuple = select('cliente', 'email', email)
-        if email == tuple[0] and senha == tuple[3]:
+        rows = select(connection_input, 'cliente', 'email', email)
+        if email == rows[0] and senha == rows[3]:
             return True
         else:
             return False
