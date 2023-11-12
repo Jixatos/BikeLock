@@ -51,8 +51,10 @@ def inputCnpj():
 def inputEmail():
     try:
         email = input("Email: ")
-        return email
+
         # (Regex)
+
+        return email
 
     except Exception as e:
         print("Erro de entrada no Email: ", e)
@@ -126,7 +128,7 @@ def cadastroClient(usuario):
 
         cep = endereco['cep']
         rua = endereco['rua']
-        numero = int(endereco['numero'])
+        numero = endereco['numero']
         complemento = endereco['complemento']
         estado = endereco['estado']
         cidade = endereco['cidade']
