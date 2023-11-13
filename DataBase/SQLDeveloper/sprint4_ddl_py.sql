@@ -9,7 +9,7 @@ CREATE TABLE bicicleta (
 CREATE TABLE cliente (
     email                VARCHAR2(255) PRIMARY KEY,
     nome                 VARCHAR2(100) NOT NULL,
-    telefone             VARCHAR2(9) NOT NULL,
+    telefone             VARCHAR2(11) NOT NULL,
     senha                VARCHAR2(50) NOT NULL
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE endereco (
     cep                VARCHAR2(8) NOT NULL,
     logradouro         VARCHAR2(255) NOT NULL,
     numero             INTEGER NOT NULL,
-    complemento        VARCHAR2(10),
+    complemento        VARCHAR2(25),
     estado             VARCHAR2(2),
     cidade             VARCHAR2(25),
     cliente_email      VARCHAR2(255) NOT NULL
