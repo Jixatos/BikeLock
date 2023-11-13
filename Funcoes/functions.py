@@ -22,15 +22,14 @@ def inputTelefone():
 
 def inputCpf():
     try:
-        cpf = input("CPF: ")
+        while True:
+            cpf = input("CPF: ")
 
-        # Remoção de caracteres padrões no CPF (Regex)
-        car = ".-/ "
-        for i in range(0, len(car)):
-            cpf = cpf.replace(car[i], "")
-        cpf = int(cpf)
-
-        return cpf
+            car = ".-/ "
+            for i in range(0, len(car)):
+                cpf = cpf.replace(car[i], "")
+            if len(cpf) == 11:
+                return cpf
     except Exception as e:
         print("Erro de entrada no CPF: ", e)
         return None
@@ -38,15 +37,14 @@ def inputCpf():
 
 def inputCnpj():
     try:
-        cnpj = input("CNPJ: ")
+        while True:
+            cnpj = input("CPF: ")
 
-        # Remoção de caracteres padrões no CNPJ (Regex)
-        car = ".-/ "
-        for i in range(0, len(car)):
-            cnpj = cnpj.replace(car[i], "")
-        cnpj = int(cnpj)
-
-        return cnpj
+            car = ".-/ "
+            for i in range(0, len(car)):
+                cnpj = cnpj.replace(car[i], "")
+            if len(cnpj) == 11:
+                return cnpj
     except Exception as e:
         print("Erro de entrada no CNPJ: ", e)
         return None
