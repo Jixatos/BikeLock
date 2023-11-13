@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="C73A34E4-6BC2-E12F-DC6E-29381F40AA4E" mainViewID="FA0AE49E-C253-ACC4-0D95-6AAF643E4EE9">
-<createdBy>j1108</createdBy>
-<createdTime>2023-11-10 18:35:18 UTC</createdTime>
-<ownerDesignName>sprint4_dm_py</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</LogicalDesign>
