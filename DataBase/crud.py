@@ -26,12 +26,12 @@ def insert(connection_input, tabela, rows, values):
     try:
         conexao = getConnection(connection_input)
         cursor = conexao.cursor()
-        query = f"INSERT INTO {tabela} {rows} VALUES ({values})"
+        query = f"INSERT INTO {tabela} ( {rows} ) VALUES ( {values} )"
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
         conexao.rollback()
-        print(f"Erro no insert: {e}")
+        print("Erro no insert: ", e)
     finally:
         closeConnection(conexao)
         cursor.close()
@@ -44,40 +44,9 @@ def select(connection_input, tabela, id_row, value):
         query = f"SELECT * FROM {tabela} WHERE {id_row} = '{value}'"
         cursor.execute(query)
         array = [result for result in cursor]
-
     except Exception as e:
         print(f"Erro no select: {e}")
     finally:
         return array
-        closeConnection(conexao)
-        cursor.close()
-
-
-def update(connection_input, tabela, camps, id_row, id_value):
-    try:
-        conexao = getConnection(connection_input)
-        cursor = conexao.cursor()
-        query = f"UPDATE {tabela} SET {camps} WHERE {id_row} = '{id_value}'"
-        cursor.execute(query)
-        conexao.commit()
-    except Exception as e:
-        conexao.rollback()
-        print(f"Erro no update: {e}")
-    finally:
-        closeConnection(conexao)
-        cursor.close()
-
-
-def delete(connection_input, tabela, id_row, id_value):
-    try:
-        conexao = getConnection(connection_input)
-        cursor = conexao.cursor()
-        query = f"DELETE FROM {tabela} WHERE {id_row} = '{id_value}'"
-        cursor.execute(query)
-        conexao.commit()
-    except Exception as e:
-        conexao.rollback()
-        print(f"Erro no delete: {e}")
-    finally:
         closeConnection(conexao)
         cursor.close()
