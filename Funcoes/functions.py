@@ -2,6 +2,7 @@ from DataBase.crud import insert, select, getConnection, closeConnection
 import requests
 import json
 import os
+import re
 
 
 def inputTelefone():
@@ -50,11 +51,13 @@ def inputCnpj():
 
 def inputEmail():
     try:
-        email = input("Email: ")
+        while True:
+            email = input("Email: ")
+            regex = r'^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z\.a-zA-Z]{1,3}$'
+            if re.search(regex, email):
+                return email
 
-        # (Regex)
-
-        return email
+            return email
 
     except Exception as e:
         print("Erro de entrada no Email: ", e)
