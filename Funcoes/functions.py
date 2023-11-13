@@ -1,4 +1,4 @@
-from DataBase.crud import insert, select, update, delete, getConnection, closeConnection
+from DataBase.crud import insert, select, getConnection, closeConnection
 import requests
 import json
 import os
@@ -84,11 +84,32 @@ def inputCep():
         car = ".-/ "
         for i in range(0, len(car)):
             cep = cep.replace(car[i], "")
-        cep = int(cep)
 
         return cep
     except Exception as e:
         print("Erro de entrada no CPF: ", e)
+        inputCep()
+
+def inputNumero():
+    try:
+        numero = int(input("Numero: "))
+        return numero
+    except ValueError as ve:
+        print("Erro de entrada no numero: ", ve)
+        inputNumero()
+    except Exception as e:
+        print("Erro de entrada do número: ", e)
+
+def inputEstado():
+    try:
+        estado = input("Estado: ")
+        if len(estado) == 2:
+            return estado
+        else:
+            inputEstado()
+    except Exception as e:
+        print("Erro de entrada de Estado: ", e)
+
 
 
 def GETViaCep(cep):
@@ -136,18 +157,18 @@ def cadastroClient(connection_input, usuario):
         str_rows_end = ",".join(rows_end)
 
         cep = endereco['cep']
-        rua = endereco['rua']
+        logradouro = endereco['logradouro']
         numero = endereco['numero']
         complemento = endereco['complemento']
         estado = endereco['estado']
         cidade = endereco['cidade']
-        values_end = f'{cep},{rua},{numero},{complemento},{estado},{cidade}'
+        values_end = f"{cep},{logradouro},{numero},{complemento},{estado},{cidade},{email}"
 
         # Inserção na tabela de endereco
-        insert('endereco', str_rows_end, values_end)
+        insert(connection_input, 'endereco', str_rows_end, values_end)
 
         # Inserção na tabela de cliente
-        insert('cliente', str_rows_user, values_user)
+        insert(connection_input, 'cliente', str_rows_user, values_user)
 
         # Inserção na tabela Fisica/Jurídica
         if cpf is not None:
@@ -156,6 +177,7 @@ def cadastroClient(connection_input, usuario):
             insert(connection_input, 'judicial', 'cnpj', values_jud)
 
         print("Cadastrado com sucesso!")
+        return 1
     except Exception as e:
         print("Erro no cadastro do usuário: ", e)
 
