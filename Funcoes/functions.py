@@ -12,7 +12,7 @@ def inputTelefone():
         # (Regex)
 
         numero = int(numero.strip())
-        telefone = (ddd, numero)
+        telefone = f'{ddd}{numero}'
 
         return telefone
     except ValueError as e:
@@ -136,21 +136,20 @@ def verCep(dic):
 
 def cadastroClient(connection_input, usuario):
     try:
-        rows_user = [row for row in usuario.keys()]
-        str_rows_user = ",".join(rows_user)
+        str_rows_user = 'email, nome, telefone, senha'
 
         email = usuario['email']
         nome = usuario['nome']
         telefone = usuario['telefone']
         senha = usuario['senha']
-        values_user = f'{email},{nome},{telefone},{senha}'
+        values_user = f"'{email}','{nome}','{telefone}','{senha}'"
 
         cpf = usuario['cpf']
         rg = usuario['rg']
-        values_fis = f'{cpf},{rg}'
+        values_fis = f"'{cpf}','{rg}','{email}'"
 
         cnpj = usuario['cnpj']
-        values_jud = f'{cnpj}'
+        values_jud = f"'{cnpj}','{email}'"
 
         endereco = usuario['endereco']
         rows_end = [rows for rows in endereco.keys()]
@@ -162,19 +161,19 @@ def cadastroClient(connection_input, usuario):
         complemento = endereco['complemento']
         estado = endereco['estado']
         cidade = endereco['cidade']
-        values_end = f"{cep},{logradouro},{numero},{complemento},{estado},{cidade},{email}"
-
-        # Inserção na tabela de endereco
-        insert(connection_input, 'endereco', str_rows_end, values_end)
+        values_end = f"'{cep}','{logradouro}',{numero},'{complemento}','{estado}','{cidade}','{email}'"
 
         # Inserção na tabela de cliente
         insert(connection_input, 'cliente', str_rows_user, values_user)
 
+        # Inserção na tabela de endereco
+        insert(connection_input, 'endereco', str_rows_end, values_end)
+
         # Inserção na tabela Fisica/Jurídica
         if cpf is not None:
-            insert(connection_input, 'fisica', 'cpf, rg', values_fis)
+            insert(connection_input, 'fisica', 'cpf, rg, cliente_email', values_fis)
         else:
-            insert(connection_input, 'judicial', 'cnpj', values_jud)
+            insert(connection_input, 'judicial', 'cnpj, cliente_email', values_jud)
 
         print("Cadastrado com sucesso!")
         return 1
@@ -234,3 +233,9 @@ def connectionJSON(file):
         connection_input = createJSON(file)
         return connection_input
 
+def menuHome():
+    print("Para prosseguir com as escolhas abaixo escolha o número referente a opção desejada.")
+    escolha = input("Página principal 'HOME'"
+                    "1 > Seguros de Bikes "
+                    "2 > Bike cadastro"
+                    "3 > LogOFF")

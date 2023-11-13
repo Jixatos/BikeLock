@@ -23,6 +23,8 @@ def closeConnection(connection):
 
 
 def insert(connection_input, tabela, rows, values):
+    conexao = None
+    cursor = None
     try:
         conexao = getConnection(connection_input)
         cursor = conexao.cursor()
@@ -30,23 +32,30 @@ def insert(connection_input, tabela, rows, values):
         cursor.execute(query)
         conexao.commit()
     except Exception as e:
-        conexao.rollback()
+        if conexao:
+            conexao.rollback()
         print("Erro no insert: ", e)
     finally:
-        closeConnection(conexao)
-        cursor.close()
+        if cursor:
+            cursor.close()
+        if conexao:
+            closeConnection(conexao)
 
 
 def select(connection_input, tabela, id_row, value):
+    conexao = None
+    cursor = None
     try:
         conexao = getConnection(connection_input)
         cursor = conexao.cursor()
         query = f"SELECT * FROM {tabela} WHERE {id_row} = '{value}'"
         cursor.execute(query)
         array = [result for result in cursor]
+        return array
     except Exception as e:
         print(f"Erro no select: {e}")
     finally:
-        return array
-        closeConnection(conexao)
-        cursor.close()
+        if cursor:
+            cursor.close()
+        if conexao:
+            closeConnection(conexao)
