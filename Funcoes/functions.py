@@ -313,3 +313,32 @@ def insertSeguro(connection_input, email, seguro):
 
     except Exception as e:
         print("Erro na escolha de seguro: ", e)
+
+
+def perfil(connection_input, email):
+    try:
+        user = select(connection_input, 'cliente', 'email', email)
+        print(f"Nome: {user[0][1]}"
+              f"\nEmail: {email}"
+              f"\nTelefone: {user[0][2]}")
+        cpf = select(connection_input, 'fisica', 'cliente_email', email)
+        cnpj = select(connection_input, 'judicial', 'cliente_email', email)
+        if len(cnpj) == 0:
+            print(f"CPF: {cpf[0][0]}"
+                  f"\nRG: {cpf[0][1]}")
+        else:
+            print(f"CNPJ: {cnpj[0][0]}")
+
+        endereco = select(connection_input, 'endereco', 'cliente_email', email)
+        print(f"CEP: {endereco[0][1]}"
+              f"\nEndereco: {endereco[0][2]} - {endereco[0][3]}"
+              f"\nComplemento: {endereco[0][4]}"
+              f"\nLocalidade: {endereco[0][6]} - {endereco[0][5]}")
+
+        bike = select(connection_input, 'bicicleta', 'cliente_email', email)
+        print(f"Bike"
+              f"\nMarca: {bike[0][1]}"
+              f"\nModelo: {bike[0][2]}"
+              f"\nValor: {bike[0][3]}")
+    except Exception as e:
+        print("Erro no retorno dos dados do usuário: ", e)

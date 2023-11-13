@@ -1,7 +1,7 @@
 from DataBase.crud import select
 from Funcoes.functions import (inputEmail, inputPassword, login, cadastroClient, inputTelefone, inputCep, inputCpf,
                                inputCnpj, GETViaCep, verCep, connectionJSON, inputNumero, inputEstado, segurosPrint,
-                               cadastroBike, inputValor, logoff, turnOFF, insertSeguro)
+                               cadastroBike, inputValor, logoff, turnOFF, insertSeguro, perfil)
 
 # Variaveis de controle que seriam necessárias no front end
 test = True  # apenas para o while e simular uma aplicação
@@ -116,10 +116,7 @@ while test:
                 else:
                     print("Escolha um entre os seguros mostrados")
         case '4':
-            user = select(connection_input, 'cliente', 'email', email)
-            print(f"Nome: {user[0][1]}"
-                  f"\nEmail: {email}"
-                  f"\nTelefone: {user[0][2]}")
+            perfil(connection_input, email)
         case '5':
             status_login = logoff()
         case '6':
