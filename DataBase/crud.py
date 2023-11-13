@@ -31,6 +31,7 @@ def insert(connection_input, tabela, rows, values):
         query = f"INSERT INTO {tabela} ( {rows} ) VALUES ( {values} )"
         cursor.execute(query)
         conexao.commit()
+        print("Cadastro efetuado com Sucesso!")
     except Exception as e:
         if conexao:
             conexao.rollback()

@@ -90,6 +90,7 @@ def inputCep():
         print("Erro de entrada no CPF: ", e)
         inputCep()
 
+
 def inputNumero():
     try:
         numero = int(input("Numero: "))
@@ -99,6 +100,7 @@ def inputNumero():
         inputNumero()
     except Exception as e:
         print("Erro de entrada do número: ", e)
+
 
 def inputEstado():
     try:
@@ -110,6 +112,17 @@ def inputEstado():
     except Exception as e:
         print("Erro de entrada de Estado: ", e)
 
+
+def inputValor():
+    try:
+        valor = input("Valor: ")
+        valor = float(valor.replace(',', '.'))
+        return valor
+    except ValueError:
+        print("Digite um valor válido.")
+        inputValor()
+    except Exception as e:
+        print("Erro de entrada no valor: ", e)
 
 
 def GETViaCep(cep):
@@ -233,9 +246,70 @@ def connectionJSON(file):
         connection_input = createJSON(file)
         return connection_input
 
-def menuHome():
-    print("Para prosseguir com as escolhas abaixo escolha o número referente a opção desejada.")
-    escolha = input("Página principal 'HOME'"
-                    "1 > Seguros de Bikes "
-                    "2 > Bike cadastro"
-                    "3 > LogOFF")
+
+def segurosPrint():
+    print("Os seguros disponibilizados pela PortoSeguros são:"
+          "\nPedal Essencial - O plano gratuito* para você experimentar um dos serviços essenciais oferecidos, "
+          "de acordo com as suas necessidades."
+          "\nPedal Leve - Você gosta de pedalar e está buscando um plano de serviços intermediário? O Pedal leve da "
+          "Porto é para você."
+          "\nPedal Elite - Conte com diversos serviços capazes de elevar suas aventuras para o próximo nível.")
+    seguros = ['Pedal Essencial', 'Pedal Leve', 'Pedal Elite']
+    return seguros
+
+
+def cadastroBike(connection_input, email, bike):
+    try:
+        marca = bike['marca']
+        modelo = bike['modelo']
+        valor = bike['valor']
+        str_rows = "marca, modelo, valor, cliente_email"
+        str_values = f"'{marca}', '{modelo}', {valor}, '{email}'"
+
+        insert(connection_input, "bicicleta", str_rows, str_values)
+        return 1
+    except Exception as e:
+        print("Erro no cadastro da Bike: ", e)
+
+
+def logoff():
+    conf = input("Você quer se desconectar? Responda com 'Sim' ou 'Não\nR:'").strip().upper()
+    match conf:
+        case 'SIM' | 'S':
+            return 'deslogado'
+        case 'NÃO' | 'NAO' | 'N':
+            return 'logado'
+
+
+def turnOFF():
+    conf = input("Você quer SAIR? Caso queira sair digite 'SAIR'\nR: ")
+    match conf:
+        case 'SAIR':
+            print("Tudo bem. Muito obrigado por usar nossos serviços.")
+            return False
+        case _:
+            return True
+
+
+def verificarBicicleta(connection_input, email):
+    try:
+        array = select(connection_input, "bicicleta", 'cliente_email', email)
+        id = array[0][0]
+        return id
+    except IndexError as ie:
+        print("Erro no select do id da bike,", ie)
+    except Exception as e:
+        print("Erro na verificação da bicicleta do cliente: ", e)
+
+
+def insertSeguro(connection_input, email, seguro):
+    try:
+        id_bicicleta = verificarBicicleta(connection_input, email)
+
+        str_rows = "seguro, id_bicicleta"
+        str_values = f"'{seguro}', '{id_bicicleta}'"
+
+        insert(connection_input, 'seguros', str_rows, str_values)
+
+    except Exception as e:
+        print("Erro na escolha de seguro: ", e)

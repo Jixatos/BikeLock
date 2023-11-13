@@ -1,18 +1,19 @@
-from Funcoes.functions import inputEmail, inputPassword, login, cadastroClient, inputTelefone, inputCep, inputCpf, \
-    inputCnpj, GETViaCep, verCep, connectionJSON, inputNumero, inputEstado
 from DataBase.crud import select
+from Funcoes.functions import (inputEmail, inputPassword, login, cadastroClient, inputTelefone, inputCep, inputCpf,
+                               inputCnpj, GETViaCep, verCep, connectionJSON, inputNumero, inputEstado, segurosPrint,
+                               cadastroBike, inputValor, logoff, turnOFF, insertSeguro)
 
 # Variaveis de controle que seriam necessárias no front end
-test = True #apenas para o while e simular uma aplicação
-status_login = ''
+test = True  # apenas para o while e simular uma aplicação
+status_login = 'deslogado'
 print("Olá, Bem-vindo a BikeLock")
 print("Para iniciar, insira os dados para conexão com banco de dados. Tenha em mente que você já deve ter "
       "aberto o SQL Developer e rodado o script para funcionar adequadamente.")
 while test:
 
     connection_input = connectionJSON('connection.json')
-    print("Faça seu login")
     while status_login != 'logado':
+        print("Faça seu login")
         email = inputEmail()
         senha = inputPassword()
         status_login = login(connection_input, email, senha)
@@ -81,8 +82,47 @@ while test:
                     cond_cad = cadastroClient(connection_input, cliente)
         else:
             user = select(connection_input, 'cliente', 'email', email)
-            print(f"Parabéns, {user[0][1]} você está logado")
+            print(f"Parabéns, {user[0][1]} você está logado.")
+    print("Para prosseguir com as escolhas abaixo escolha o número referente a opção desejada.")
+    escolha = input("Página principal - 'HOME'"
+                    "\n1 > Seguros de Bikes "
+                    "\n2 > Bike cadastro"
+                    "\n3 > Selecionar Seguro"
+                    "\n4 > Perfil"
+                    "\n5 > LogOFF"
+                    "\n6 > Sair"
+                    "\nR: ")
+    match escolha:
+        case '1':
+            segurosPrint()
+        case '2':
+            cad_bike = 0
+            while cad_bike != 1:
+                bike = {'marca': input("Marca: "),
+                        'modelo': input("Modelo: "),
+                        'valor': inputValor(),
+                        'email': email}
 
-
-
-
+                cad_bike = cadastroBike(connection_input, email, bike)
+        case '3':
+            esc_sec = False
+            while not esc_sec:
+                seguros = segurosPrint()
+                seguro = input("Para escolher entre um deles basta escrever o nome da mesma forma que está abaixo\n"
+                               "Exemplo: Pedal Essencial\nR: ")
+                if seguro in seguros:
+                    insertSeguro(connection_input, email, seguro)
+                    esc_sec = True
+                else:
+                    print("Escolha um entre os seguros mostrados")
+        case '4':
+            user = select(connection_input, 'cliente', 'email', email)
+            print(f"Nome: {user[0][1]}"
+                  f"\nEmail: {email}"
+                  f"\nTelefone: {user[0][2]}")
+        case '5':
+            status_login = logoff()
+        case '6':
+            test = turnOFF()
+        case _:
+            print('Insira um número entre o menu mostrado acima:')

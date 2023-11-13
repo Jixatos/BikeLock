@@ -2,7 +2,7 @@ CREATE TABLE bicicleta (
     id_bicicleta  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     marca         VARCHAR2(50),
     modelo        VARCHAR2(50),
-    valor         FLOAT(2) NOT NULL,
+    valor         NUMBER(10,2) NOT NULL,
     cliente_email VARCHAR2(255) NOT NULL
 );
 
