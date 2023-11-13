@@ -6,15 +6,13 @@ import os
 
 def inputTelefone():
     try:
-        ddd = int(input("DDD: "))
-        numero = input("Telefone: ")
+        while True:
+            ddd = input("DDD: ").strip()
+            numero = input("Telefone: ").strip()
+            telefone = f'{ddd}{numero}'
 
-        # (Regex)
-
-        numero = int(numero.strip())
-        telefone = f'{ddd}{numero}'
-
-        return telefone
+            if len(telefone) == 11:
+                return telefone
     except ValueError as e:
         print("Erro de entrada no Telefone: ", e)
         return None
